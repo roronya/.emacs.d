@@ -1,4 +1,4 @@
-(require 'evil)
+;;(require 'evil)
 ;;(evil-mode 1)
 (add-hook 'evil-normal-state-entry-hook
           '(lambda()

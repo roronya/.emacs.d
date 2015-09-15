@@ -1,0 +1,14 @@
+/*
+\#*\#
+.*
+!/.gitignore
+!/Cask
+!/init.el
+!/site-lisp/
+!/eshell/
+!/snippets/
+!shinchoku.xpm
+!/eshell/history
+!/eshell/lastdir
+!/core
+!/site-lisp

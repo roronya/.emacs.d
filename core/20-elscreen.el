@@ -3,14 +3,9 @@
 (elscreen-separate-buffer-list-mode 1)
 (setq elscreen-tab-display-control nil)
 (setq elscreen-prefix-key (kbd "M-C-]"))
-(setq elscreen-display-tab nil) ; disable tabs display
 
-;; get-alist was removed somewhere along the line
-;; You can try substituting all instances of get-alist with assoc-default
-;; instead of using defalias and see if that works; I haven't tried.
-(defalias 'get-alist 'assoc-default) ; get-alist is gone
-
-;; Put tabs display in your frame title bar instead.
+(setq elscreen-display-tab nil)
+(defalias 'get-alist 'assoc-default)
 (defun elscreen-frame-title-update ()
   (when (elscreen-screen-modified-p 'elscreen-frame-title-update)
     (let* ((screen-list (sort (elscreen-get-screen-list) '<))

@@ -25,3 +25,6 @@
 (depends-on "anzu")
 (depends-on "swoop")
 (depends-on "ace-isearch")
+(depends-on "quickrun")
+(depends-on "popwin")
+(depends-on "eval-in-repl")

@@ -1,6 +1,6 @@
-(use-package python-mode
+(use-package python
   :init
-  (add-hook 'python-mode-hook
+  (add-hook 'python-hook
             '(lambda()
                (jedi:setup)
                (rainbow-delimiters-mode)

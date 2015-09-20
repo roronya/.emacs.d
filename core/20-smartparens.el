@@ -1,7 +1,7 @@
 (smartparens-global-mode t)
 ;;;;;;;;;
 ;; global
-(require 'smartparens-config)
+(use-package smartparens-config)
 
 (add-hook 'minibuffer-setup-hook 'turn-on-smartparens-strict-mode)
 

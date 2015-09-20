@@ -1,1 +1,2 @@
-(require 'iedit)
+(use-package iedit)
+

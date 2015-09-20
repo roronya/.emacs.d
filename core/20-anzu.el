@@ -1,4 +1,4 @@
-(require 'anzu)
+(use-package anzu)
 (global-anzu-mode t)
 
 (custom-set-variables

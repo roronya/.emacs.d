@@ -1,6 +1,5 @@
 (require 'elscreen)
 (elscreen-start)
-(elscreen-separate-buffer-list-mode 1)
 (setq elscreen-tab-display-control nil)
 (setq elscreen-prefix-key (kbd "M-C-]"))
 

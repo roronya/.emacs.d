@@ -28,3 +28,5 @@
 (depends-on "quickrun")
 (depends-on "popwin")
 (depends-on "eval-in-repl")
+(depends-on "magit")
+(depends-on "yaml-mode")

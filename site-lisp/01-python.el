@@ -1,4 +1,4 @@
-(use-package python
+(use-package python-mode
   :init
   (add-hook 'python-hook
             '(lambda()
@@ -12,4 +12,6 @@
   (setq indent-level 4)
   (setq tab-width 4)
   (setq python-indent 4)
+  :mode
+  (("\\.py?\\'" . python-mode))
   )

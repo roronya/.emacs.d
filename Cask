@@ -30,3 +30,4 @@
 (depends-on "eval-in-repl")
 (depends-on "magit")
 (depends-on "yaml-mode")
+(depends-on "markdown-mode")

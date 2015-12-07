@@ -1,3 +1,9 @@
+(defun forward-word+1()
+  (interactive)
+  (forward-word)
+  (forward-char))
+
+(defun back)
 (bind-keys 
  ("M-z" . undo)
  ("C-u" . set-mark-command)
@@ -6,4 +12,5 @@
  ("C-x C-c" . helm-M-x)
  ("M-p" . scroll-down)
  ("M-n" . scroll-up)
- )
+ ("M-f" . forward-word+1)
+ ("M-b" . backward-word))

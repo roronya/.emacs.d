@@ -1,20 +1,21 @@
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+(package-refresh-contents)
 
-(require 'use-package)
+(package-install 'use-package)
+(package-install 'init-loader)
+(package-install 'helm)
+(package-install 'exec-path-from-shell)
+(package-install 'expand-region)
+(package-install 'smartrep)
+(package-install 'elscreen)
 
 (exec-path-from-shell-initialize)
 
-(use-package init-loader)
+(require 'use-package)
+(require 'init-loader)
 (custom-set-variables
  '(init-loader-show-log-after-init 'error-only))
 (init-loader-load "~/.emacs.d/core")
-(init-loader-load "~/.emacs.d/site-lisp")
-
-(show-paren-mode 1)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(fancy-splash-image "~/.emacs.d/shinchoku.xpm"))
+(init-loader-load "~/.emacs.d/extensions")

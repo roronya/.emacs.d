@@ -11,4 +11,5 @@
 !/eshell/history
 !/eshell/lastdir
 !/core
-!/site-lisp
+!/extensions
+

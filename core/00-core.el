@@ -8,7 +8,7 @@
 (require 'smartrep)
 (require 'elscreen)
 
-;;; 範囲系
+;;; Region
 (global-unset-key "\C-r")
 (smartrep-define-key global-map "C-r"
   '(("C-r" . 'er/expand-region)
@@ -18,7 +18,7 @@
     )
   )
 
-;;; Window 系
+;;; Window
 (global-unset-key "\C-w")
 (smartrep-define-key global-map "C-w"
   '(("C-d" . 'delete-window)
@@ -36,7 +36,7 @@
     )
   )
 
-;;; Tab 系
+;;; Tab
 (elscreen-start)
 (global-unset-key "\C-t")
 (smartrep-define-key global-map "C-t"
@@ -47,10 +47,28 @@
     )
   )
 
+;;; kill-line
 (setq kill-whole-line t)
-(bind-keys
- ("C-u" . undo)
- 
- ("M-p" . scroll-down)
- ("M-n" . scroll-up)
-)
+(defun my/delete-region-or-char ()
+  (interactive)
+  (if (region-active-p)
+      (kill-region (region-beginning) (region-end))
+    (delete-char 1 nil)))
+(bind-key "C-d" 'my/delete-region-or-char)
+
+;;; kill-word-at-point
+(defun my/kill-word-at-point ()
+      (interactive)
+      (let ((char (char-to-string (char-after (point)))))
+        (cond
+         ((string= " " char) (delete-horizontal-space))
+         ((string-match "[\t\n -@\[-`{-~]" char) (kill-word 1))
+         (t (forward-char) (backward-word) (kill-word 1)))))
+(bind-key "M-d" 'my/kill-word-at-point)
+
+;;; undo
+(bind-key "C-u" 'undo)
+
+;;; scroll
+(bind-key "M-p" 'scroll-down)
+(bind-key "M-n" 'scroll-up)

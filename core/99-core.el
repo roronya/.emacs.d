@@ -20,6 +20,7 @@
 
 ;;; Window
 (global-unset-key "\C-w")
+(global-unset-key "\C-xo")
 (smartrep-define-key global-map "C-w"
   '(("C-d" . 'delete-window)
     ("M-d" . 'delete-other-windows)
@@ -33,6 +34,8 @@
     ("C-n" . 'windmove-down)
     ("C-v" . 'split-window-right)
     ("C-h" . 'split-window-below)
+    ("C-=" . 'my/text-scale-increase)
+    ("C--" . 'my/text-scale-decrease)
     )
   )
 
@@ -46,6 +49,12 @@
     ("C-p" . 'elscreen-previous)
     )
   )
+
+;;; Search
+(global-ace-isearch-mode t)
+(bind-key "C-v" 'vimlike-f)
+(bind-key "M-v" 'vimlike-F)
+(bind-key "C-;" 'vimlike-semicolon)
 
 ;;; kill-line
 (setq kill-whole-line t)
@@ -72,3 +81,14 @@
 ;;; scroll
 (bind-key "M-p" 'scroll-down)
 (bind-key "M-n" 'scroll-up)
+
+;;; rename
+(bind-key "C-x C-w" 'rename-file-and-buffer)
+
+;;; move
+(defun my/forward-word+1 ()
+  (interactive)
+  (forward-word)
+  (forward-char)
+  )
+(bind-key "M-f" 'my/forward-word+1)

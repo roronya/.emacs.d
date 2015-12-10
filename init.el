@@ -2,7 +2,8 @@
 (package-initialize)
 
 (defun check-package()
-  (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
   (package-refresh-contents)
   (package-install 'use-package)
   (package-install 'init-loader)
@@ -16,6 +17,10 @@
   (package-install 'popwin)
   (package-install 'rainbow-delimiters)
   (package-install 'smartparens)
+  (package-install 'ein)
+  (package-install 'eval-in-repl)
+  (package-install 'flycheck)
+  (package-install 'flycheck-pos-tip)
   )
 
 ;;; (check-package)

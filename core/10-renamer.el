@@ -13,5 +13,3 @@
           (rename-buffer new-name)
           (set-visited-file-name new-name)
           (set-buffer-modified-p nil))))))
-
-(bind-key "C-x C-w" 'rename-file-and-buffer)

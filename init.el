@@ -1,20 +1,35 @@
-(require 'cask "~/.cask/cask.el")
-(cask-initialize)
+(require 'package)
+(package-initialize)
 
-(require 'use-package)
+(defun check-package()
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
+  (package-refresh-contents)
+  (package-install 'use-package)
+  (package-install 'init-loader)
+  (package-install 'helm)
+  (package-install 'exec-path-from-shell)
+  (package-install 'expand-region)
+  (package-install 'smartrep)
+  (package-install 'elscreen)
+  (package-install 'ace-isearch)
+  (package-install 'quickrun)
+  (package-install 'popwin)
+  (package-install 'rainbow-delimiters)
+  (package-install 'smartparens)
+  (package-install 'ein)
+  (package-install 'eval-in-repl)
+  (package-install 'flycheck)
+  (package-install 'flycheck-pos-tip)
+  )
 
+;;; (check-package)
 (exec-path-from-shell-initialize)
 
-(use-package init-loader)
+(require 'use-package)
+(require 'init-loader)
 (custom-set-variables
  '(init-loader-show-log-after-init 'error-only))
 (init-loader-load "~/.emacs.d/core")
-(init-loader-load "~/.emacs.d/site-lisp")
-
-(show-paren-mode 1)
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(fancy-splash-image "~/.emacs.d/shinchoku.xpm"))
+(init-loader-load "~/.emacs.d/appearance")
+(init-loader-load "~/.emacs.d/extensions")

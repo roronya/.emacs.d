@@ -15,7 +15,7 @@
    (set-face-attribute 'linum nil :height def-zoom-ht)
    )
 
-(defun text-scale-decrease-zAp ()
+(defun my/text-scale-decrease ()
    (interactive)
    (if (not (boundp 'text-scale-mode-amount)) ;; first-time init  
               (setq  text-scale-mode-amount 0))
@@ -31,7 +31,7 @@
                                      (elt sub-zoom-ht (- 0 text-scale)))))))
    )
 
-(defun text-scale-increase-zAp ()
+(defun my/text-scale-increase ()
    (interactive)
    (if (not (boundp 'text-scale-mode-amount)) ;; first-time init  
               (setq  text-scale-mode-amount 0))
@@ -46,6 +46,3 @@
                (set-face-attribute 'linum nil :height 
                                      (elt sub-zoom-ht (- 0 text-scale)))))))
    )
-
-(bind-key "C-+" 'text-scale-increase-zAp)
-(bind-key "C--" 'text-scale-decrease-zAp)

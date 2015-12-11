@@ -21,6 +21,7 @@
   (package-install 'eval-in-repl)
   (package-install 'flycheck)
   (package-install 'flycheck-pos-tip)
+  (package-install 'magit)
   )
 
 ;;; (check-package)

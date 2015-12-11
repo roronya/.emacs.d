@@ -23,7 +23,7 @@
 
 ;;; shinchoku
 (custom-set-variables
- '(fancy-splash-image "~/.emacs.d/shinchoku.xpm"))
+ '(fancy-splash-image "~/.emacs.d/appearance/shinchoku.xpm"))
 
 ;;; highlight
 (global-hl-line-mode t)

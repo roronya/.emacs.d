@@ -93,3 +93,6 @@
   (forward-char)
   )
 (bind-key "M-f" 'my/forward-word+1)
+
+;;; C-x C-c で終了しない
+(bind-key "C-x C-c" 'helm-M-x)

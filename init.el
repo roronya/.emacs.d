@@ -22,6 +22,7 @@
   (package-install 'flycheck)
   (package-install 'flycheck-pos-tip)
   (package-install 'magit)
+  (package-install 'mozc)
   )
 
 ;;; (check-package)

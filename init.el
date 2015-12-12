@@ -1,9 +1,9 @@
 (require 'package)
 (package-initialize)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
 (defun check-package()
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
   (package-refresh-contents)
   (package-install 'use-package)
   (package-install 'init-loader)
@@ -19,9 +19,15 @@
   (package-install 'smartparens)
   (package-install 'ein)
   (package-install 'eval-in-repl)
-  (package-install 'flycheck)
+  (ppackage-install 'flycheck)
   (package-install 'flycheck-pos-tip)
   (package-install 'magit)
+<<<<<<< HEAD
+=======
+  (package-install 'mozc)
+  (package-install 'web-mode)
+  (package-install 'codic)
+>>>>>>> f84778c7118aaeed4a1c086b614acd77b6e0a425
   )
 
 ;;; (check-package)

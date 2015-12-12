@@ -15,6 +15,7 @@
     ("M-r" . 'er/contract-region)
     ("C-d" . 'kill-region)
     ("C-c" . 'kill-ring-save)
+    ("C-m" . 'set-mark-command)
     )
   )
 
@@ -92,3 +93,6 @@
   (forward-char)
   )
 (bind-key "M-f" 'my/forward-word+1)
+
+;;; C-x C-c で終了しない
+(bind-key "C-x C-c" 'helm-M-x)

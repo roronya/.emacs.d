@@ -15,6 +15,7 @@
     ("M-r" . 'er/contract-region)
     ("C-d" . 'kill-region)
     ("C-c" . 'kill-ring-save)
+    ("C-m" . 'set-mark-command)
     )
   )
 

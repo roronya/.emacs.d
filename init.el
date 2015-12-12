@@ -19,10 +19,12 @@
   (package-install 'smartparens)
   (package-install 'ein)
   (package-install 'eval-in-repl)
-  (package-install 'flycheck)
+  (ppackage-install 'flycheck)
   (package-install 'flycheck-pos-tip)
   (package-install 'magit)
   (package-install 'mozc)
+  (package-install 'web-mode)
+  (package-install 'codic)
   )
 
 ;;; (check-package)

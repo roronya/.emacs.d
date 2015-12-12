@@ -1,9 +1,9 @@
 (require 'package)
 (package-initialize)
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 
 (defun check-package()
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
   (package-refresh-contents)
   (package-install 'use-package)
   (package-install 'init-loader)

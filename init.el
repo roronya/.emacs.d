@@ -26,6 +26,7 @@
   (package-install 'web-mode)
   (package-install 'codic)
   (package-install 'geiser)
+  (package-install 'auto-complete)
   )
 
 ;;; (check-package)

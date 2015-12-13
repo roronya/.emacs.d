@@ -29,3 +29,6 @@
 (global-hl-line-mode t)
 (custom-set-faces
  '(hl-line ((t (:background "#000000")))))
+
+;;; brackets
+(show-paren-mode t)

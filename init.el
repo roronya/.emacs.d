@@ -22,12 +22,9 @@
   (ppackage-install 'flycheck)
   (package-install 'flycheck-pos-tip)
   (package-install 'magit)
-<<<<<<< HEAD
-=======
   (package-install 'mozc)
   (package-install 'web-mode)
   (package-install 'codic)
->>>>>>> f84778c7118aaeed4a1c086b614acd77b6e0a425
   )
 
 ;;; (check-package)

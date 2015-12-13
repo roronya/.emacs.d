@@ -27,6 +27,7 @@
   (package-install 'codic)
   (package-install 'geiser)
   (package-install 'auto-complete)
+  (package-install 'ac-geiser)
   )
 
 ;;; (check-package)

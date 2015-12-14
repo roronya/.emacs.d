@@ -28,6 +28,7 @@
   (package-install 'geiser)
   (package-install 'auto-complete)
   (package-install 'ac-geiser)
+  (package-install 'yasnippet)
   )
 
 ;;; (check-package)

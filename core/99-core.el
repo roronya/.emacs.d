@@ -89,6 +89,9 @@
 (bind-key "C-x C-w" 'rename-file-and-buffer)
 
 ;;; move
+(bind-key "C-M-a" 'beginning-of-defun)
+(bind-key "C-M-e" 'end-of-defun)
+
 (defun my/forward-word+1 ()
   (interactive)
   (forward-word)

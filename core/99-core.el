@@ -39,6 +39,7 @@
     ("C-=" . 'my/text-scale-increase)
     ("C--" . 'my/text-scale-decrease)
     ("<C-tab>" . 'rotate-layout)
+    ("C-r" . 'rotate-window)
     )
   )
 

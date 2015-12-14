@@ -7,6 +7,7 @@
 (require 'expand-region)
 (require 'smartrep)
 (require 'elscreen)
+(require 'rotate)
 
 ;;; Region
 (global-unset-key "\C-r")
@@ -37,6 +38,7 @@
     ("C-h" . 'split-window-below)
     ("C-=" . 'my/text-scale-increase)
     ("C--" . 'my/text-scale-decrease)
+    ("<C-tab>" . 'rotate-layout)
     )
   )
 
@@ -93,6 +95,14 @@
   (forward-char)
   )
 (bind-key "M-f" 'my/forward-word+1)
+
+(defun my/goto-line-beginning-or-indent (&optional $position)
+  (interactive)
+  (or $position (setq $position (point)))
+  (let (($starting-position (progn (back-to-indentation) (point))))
+    (if (eq $starting-position $position)
+      (move-beginning-of-line 1))))
+(bind-key "C-a" 'my/goto-line-beginning-or-indent)
 
 ;;; C-x C-c で終了しない
 (bind-key "C-x C-c" 'helm-M-x)

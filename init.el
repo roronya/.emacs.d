@@ -29,7 +29,9 @@
   (package-install 'auto-complete)
   (package-install 'ac-geiser)
   (package-install 'yasnippet)
-  (package-install 'helm-c-yasnippet))
+  (package-install 'helm-c-yasnippet)
+  (package-install 'rotate)
+  )
 
 ;;; (check-package)
 (exec-path-from-shell-initialize)

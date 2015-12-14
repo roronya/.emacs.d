@@ -31,6 +31,7 @@
   (package-install 'yasnippet)
   (package-install 'helm-c-yasnippet)
   (package-install 'rotate)
+  (package-install 'golden-ratio)
   )
 
 ;;; (check-package)

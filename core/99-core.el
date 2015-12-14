@@ -8,6 +8,7 @@
 (require 'smartrep)
 (require 'elscreen)
 (require 'rotate)
+(require 'golde-ratio)
 
 ;;; Region
 (global-unset-key "\C-r")
@@ -42,6 +43,7 @@
     ("C-r" . 'rotate-window)
     )
   )
+(golden-ratio-mode 1)
 
 ;;; Tab
 (elscreen-start)

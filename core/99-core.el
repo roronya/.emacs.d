@@ -126,4 +126,5 @@
 (bind-key* "C-x C-h C-v" 'describe-variable)
 (bind-key* "C-x C-h C-k" 'describe-key)
 
-;;; favotite
+;;; patoronage
+(bind-key* "C-x C-p C-e" 'ein:notebooklist-open)

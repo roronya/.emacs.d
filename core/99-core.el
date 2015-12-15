@@ -9,7 +9,6 @@
 (require 'elscreen)
 (require 'rotate)
 (require 'golden-ratio)
-(require 'smooth-scroll)
 
 ;;; Region
 (global-unset-key "\C-r")
@@ -86,9 +85,8 @@
 (bind-key* "C-u" 'undo)
 
 ;;; scroll
-(smooth-scroll-mode t)
-(bind-key* "M-p" 'smooth-scroll/scroll-down)
-(bind-key* "M-n" 'smooth-scroll/scroll-up)
+(bind-key* "M-p" 'scroll-down)
+(bind-key* "M-n" 'scroll-up)
 
 ;;; rename
 (bind-key* "C-x C-w" 'rename-file-and-buffer)

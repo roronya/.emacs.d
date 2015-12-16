@@ -6,5 +6,6 @@
 (push '("*Codic Result*" :height 20) popwin:special-display-config)
 (push '("*Geiser dbg*" :height 20) popwin:special-display-config)
 (push '("*Warnings*" :height 20) popwin:special-display-config)
+(push '("*magit:" :regexp t :height 10) popwin:special-display-config)
 
 (bind-key "C-x C-d" 'codic)

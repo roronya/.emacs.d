@@ -1,3 +1,6 @@
+;;; indnet
+(setq-default tab-width 4 indent-tabs-mode nil)
+
 ;;; delete backup files
 (setq backup-inhibited t)
 (setq make-backup-files nil)

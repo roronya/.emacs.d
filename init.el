@@ -32,6 +32,7 @@
   (package-install 'helm-c-yasnippet)
   (package-install 'rotate)
   (package-install 'golden-ratio)
+  (package-install 'evil)
   )
 
 ;;; (check-package)

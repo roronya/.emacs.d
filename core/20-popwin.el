@@ -1,6 +1,6 @@
 (require 'popwin)
 (popwin-mode t)
-(push '("*quickrun*" :height 20) popwin:special-display-config)
+(push '("*quickrun*" :height 20 :noselect t) popwin:special-display-config)
 (push '("*Backtrace*" :height 20) popwin:special-display-config)
 (push '("*Codic Result*" :height 20) popwin:special-display-config)
 (push '("*Geiser dbg*" :height 20) popwin:special-display-config)

@@ -7,5 +7,6 @@
     ("d" . 'elscreen-kill)
     ("l" . 'elscreen-next)
     ("h" . 'elscreen-previous)
+    ("c" . 'elscreen-clone)
     )
   )

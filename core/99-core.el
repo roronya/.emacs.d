@@ -29,11 +29,6 @@
 ;;; C-x C-c で終了しない
 (bind-key* "C-x C-c" 'helm-M-x)
 
-;;; language
-(set-language-environment "Japanese")
-(prefer-coding-system 'utf-8)
-(set-default 'buffer-file-coding-system 'utf-8)
-
 ;;; describe
 (bind-key* "C-x C-h C-f" 'describe-function)
 (bind-key* "C-x C-h C-v" 'describe-variable)

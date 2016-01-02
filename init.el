@@ -45,3 +45,8 @@
 (init-loader-load "~/.emacs.d/core")
 (init-loader-load "~/.emacs.d/appearance")
 (init-loader-load "~/.emacs.d/extensions")
+
+;;; language 上書きされガチなので一番最後に設定する
+(set-language-environment "Japanese")
+(prefer-coding-system 'utf-8)
+(setq default-process-coding-system 'utf-8)

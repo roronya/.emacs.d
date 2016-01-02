@@ -3,3 +3,4 @@
 (require 'elscreen)
 (require 'rotate)
 (require 'golden-ratio)
+(require 'mozc)

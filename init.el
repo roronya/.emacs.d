@@ -33,6 +33,7 @@
   (package-install 'rotate)
   (package-install 'golden-ratio)
   (package-install 'evil)
+  (package-install 'indent-guide)
   )
 
 ;;; (check-package)
@@ -52,4 +53,3 @@
 (setq default-process-coding-system 'utf-8)
 (setq default-input-method "japanese-mozc")
 (setq mozc-candidate-style 'overlay)
-

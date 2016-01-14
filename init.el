@@ -34,6 +34,7 @@
   (package-install 'golden-ratio)
   (package-install 'evil)
   (package-install 'indent-guide)
+  (package-install 'jedi)
   )
 
 ;;; (check-package)

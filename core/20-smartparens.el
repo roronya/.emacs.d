@@ -7,10 +7,10 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;
 ;; keybinding management
-(define-key smartparens-mode-map (kbd "C-M-f") '(lambda () 
-						  (interactive)
-						  (sp-forward-sexp)
-						  (forward-char)))
+(define-key smartparens-mode-map (kbd "C-M-f") '(lambda ()
+                                                  (interactive)
+                                                  (sp-forward-sexp)
+                                                  (forward-char)))
 (define-key smartparens-mode-map (kbd "C-M-b") 'sp-backward-sexp)
 (define-key smartparens-mode-map (kbd "C-M-n") 'sp-next-sexp)
 (define-key smartparens-mode-map (kbd "C-M-p") 'sp-previous-sexp)

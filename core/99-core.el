@@ -18,14 +18,6 @@
 (bind-key* "C-M-a" 'beginning-of-defun)
 (bind-key* "C-M-e" 'end-of-defun)
 
-(defun my/goto-line-beginning-or-indent (&optional $position)
-  (interactive)
-  (or $position (setq $position (point)))
-  (let (($starting-position (progn (back-to-indentation) (point))))
-    (if (eq $starting-position $position)
-      (move-beginning-of-line 1))))
-(bind-key* "C-a" 'my/goto-line-beginning-or-indent)
-
 ;;; C-x C-c で終了しない
 (bind-key* "C-x C-c" 'helm-M-x)
 

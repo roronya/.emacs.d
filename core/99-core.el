@@ -7,6 +7,9 @@
 (setq auto-save-default nil)
 (setq delete-auto-save-files t)
 
+;;; auto reload
+(global-auto-revert-mode t)
+
 ;;; scroll
 (bind-key* "M-p" 'scroll-down)
 (bind-key* "M-n" 'scroll-up)

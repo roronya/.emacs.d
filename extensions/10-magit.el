@@ -12,5 +12,5 @@
             '(lambda ()
                (set-buffer-file-coding-system 'utf-8)))
   :bind
-  (("C-x C-v C-s" . magit-status))
+  (("C-x C-v" . magit-status))
 )

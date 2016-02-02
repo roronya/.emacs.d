@@ -35,6 +35,7 @@
   (package-install 'evil)
   (package-install 'indent-guide)
   (package-install 'jedi)
+  (package-install 'linum-relative)
   )
 
 ;;; (check-package)

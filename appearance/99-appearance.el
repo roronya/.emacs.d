@@ -21,6 +21,9 @@
  '(col-highlight ((t (:background "#000000"))))
  '(linum ((t (:inherit (shadow default) :foreground "#FFFFFF" :background "#002259")))))
 
+(require 'linum-relative)
+(linum-relative-global-mode t)
+
 ;;; shinchoku
 (custom-set-variables
  '(fancy-splash-image "~/.emacs.d/appearance/shinchoku.xpm"))

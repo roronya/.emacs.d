@@ -43,8 +43,6 @@
 
 (require 'use-package)
 (require 'init-loader)
-(custom-set-variables
- '(init-loader-show-log-after-init 'error-only))
 (init-loader-load "~/.emacs.d/core")
 (init-loader-load "~/.emacs.d/appearance")
 (init-loader-load "~/.emacs.d/extensions")

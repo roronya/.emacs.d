@@ -1,4 +1,4 @@
-(load-theme 'wombat)
+(load-theme 'tango-dark)
 (set-frame-parameter nil 'alpha 85)
 (menu-bar-mode 0)
 (tool-bar-mode 0)
@@ -10,8 +10,8 @@
 
 ;;; font
 (add-to-list 'default-frame-alist '(font . "VL Gothic"))
-(set-face-attribute 'default t :font "VL Gothic")
-(set-face-attribute 'default nil :font "VL Gothic")
+(set-face-attribute 'default t :font "VL Gothic" :height 160)
+(set-face-attribute 'default nil :font "VL Gothic" :height 160)
 (set-frame-font "VL Gothic" nil t)
 
 ;;; linum

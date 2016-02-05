@@ -1,4 +1,4 @@
 L = setup.el
 
-elisp: $L
+emacs : $L
 	emacs -Q --batch -l $L

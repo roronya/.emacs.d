@@ -43,6 +43,7 @@
 
 (require 'use-package)
 (require 'init-loader)
+(init-loader-load "~/.emacs.d/elisp")
 (init-loader-load "~/.emacs.d/core")
 (init-loader-load "~/.emacs.d/appearance")
 (init-loader-load "~/.emacs.d/extensions")

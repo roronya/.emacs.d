@@ -14,3 +14,5 @@
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
 (setq default-process-coding-system 'utf-8)
+(setq default-input-method "japanese-mozc")
+(setq mozc-candidate-style 'overlay)

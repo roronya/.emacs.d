@@ -1,3 +1,4 @@
+(require 'smartrep)
 (smartparens-global-mode t)
 ;;;;;;;;;
 ;; global

@@ -1,3 +1,4 @@
+(require 'rotate)
 (global-unset-key (kbd "M-w"))
 (smartrep-define-key global-map "M-w"
   '(("d" . 'delete-window)
@@ -18,5 +19,3 @@
     ("R" . 'rotate-window)
     )
   )
-
-;;;(golden-ratio-mode t)

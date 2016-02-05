@@ -1,5 +1,5 @@
 (load-theme 'manoj-dark)
-(set-frame-parameter nil 'alpha 85)
+(set-frame-parameter nil 'alpha 75)
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (setq cursor-type 'box)
@@ -31,7 +31,7 @@
 ;;; highlight
 (global-hl-line-mode t)
 (custom-set-faces
- '(hl-line ((t (:background "#000000")))))
+ '(hl-line ((t (:background "#2e2e2e")))))
 
 ;;; brackets
 (show-paren-mode t)

@@ -32,3 +32,6 @@
 (package-install 'markdown-mode)
 (package-install 'neotree)
 (package-install 'evil-smartparens)
+
+
+(jedi:install-server)

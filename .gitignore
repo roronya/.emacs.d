@@ -1,13 +1,13 @@
 /*
 \#*\#
 .*
+!README.md
 !.gitignore
 !init.el
 !Makefile
 !setup.el
-!/snippets
 !/core
 !/appearance
 !/utility
 !/mode
-
+!/snippets

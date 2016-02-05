@@ -36,6 +36,7 @@
   (package-install 'indent-guide)
   (package-install 'jedi)
   (package-install 'linum-relative)
+  (package-install 'neotree)
   )
 
 ;;; (check-package)

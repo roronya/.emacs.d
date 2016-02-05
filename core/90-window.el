@@ -19,4 +19,4 @@
     )
   )
 
-(golden-ratio-mode t)
+;;;(golden-ratio-mode t)

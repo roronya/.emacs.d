@@ -9,9 +9,9 @@
 (setq scroll-step 1)
 
 ;;; font
-(add-to-list 'default-frame-alist '(font . "VL Gothic-20") '(height . 160))
-(set-face-attribute 'default t :font "VL Gothic" :height 160)
-(set-face-attribute 'default nil :font "VL Gothic" :height 160)
+(add-to-list 'default-frame-alist '(font . "VL Gothic-17"))
+;;; (set-face-attribute 'default t :font "VL Gothic" :height 140)
+;;; (set-face-attribute 'default nil :font "VL Gothic" :height 140)
 (set-frame-font "VL Gothic" nil t)
 
 ;;; linum

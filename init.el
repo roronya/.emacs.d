@@ -10,9 +10,7 @@
 (init-loader-load "~/.emacs.d/utility")
 (init-loader-load "~/.emacs.d/mode")
 
-;;; language 上書きされガチなので一番最後に設定する
+;;; language 上書きされがちなので一番最後に設定する
 (set-language-environment "Japanese")
 (prefer-coding-system 'utf-8)
 (setq default-process-coding-system 'utf-8)
-(setq default-input-method "japanese-mozc")
-(setq mozc-candidate-style 'overlay)

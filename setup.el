@@ -31,3 +31,4 @@
 (package-install 'linum-relative)
 (package-install 'markdown-mode)
 (package-install 'neotree)
+(package-install 'evil-smartparens)

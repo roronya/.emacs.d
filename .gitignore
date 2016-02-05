@@ -35,3 +35,7 @@ tramp
 
 # server auth directory
 /server/
+
+# other
+ac-comphist.dat
+kkcrc

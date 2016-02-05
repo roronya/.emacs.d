@@ -1,4 +1,4 @@
-(load-theme 'tango-dark)
+(load-theme 'manoj-dark)
 (set-frame-parameter nil 'alpha 85)
 (menu-bar-mode 0)
 (tool-bar-mode 0)

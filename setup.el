@@ -36,6 +36,7 @@
 (package-install 'evil-smartparens)
 (package-install 'undo-tree)
 (package-install 'projectile)
+(package-install 'py-autopep8)
 
 ;;; upgrade packages
 (package-list-packages)

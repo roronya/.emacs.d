@@ -35,6 +35,7 @@
 (package-install 'neotree)
 (package-install 'evil-smartparens)
 (package-install 'undo-tree)
+(package-install 'projectile)
 
 ;;; upgrade packages
 (package-list-packages)

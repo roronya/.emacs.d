@@ -3,6 +3,8 @@
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/") t)
 (package-refresh-contents)
+
+;;; install packages
 (package-install 'use-package)
 (package-install 'init-loader)
 (package-install 'helm)
@@ -33,5 +35,10 @@
 (package-install 'neotree)
 (package-install 'evil-smartparens)
 
+;;; upgrade packages
+(package-list-packages)
+(package-menu-mark-upgrades)
+(package-menu-execute)
 
+;;; install jedi server
 (jedi:install-server)

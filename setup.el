@@ -34,6 +34,7 @@
 (package-install 'markdown-mode)
 (package-install 'neotree)
 (package-install 'evil-smartparens)
+(package-install 'undo-tree)
 
 ;;; upgrade packages
 (package-list-packages)

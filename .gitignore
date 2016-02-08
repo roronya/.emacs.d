@@ -41,3 +41,6 @@ ac-comphist.dat
 kkcrc
 .python-environments/
 url/
+request
+projectile-bookmarks.eld
+undohist/

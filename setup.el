@@ -37,6 +37,7 @@
 (package-install 'undo-tree)
 (package-install 'projectile)
 (package-install 'py-autopep8)
+(package-install 'twittering-mode)
 
 ;;; upgrade packages
 (package-list-packages)

@@ -1,3 +1,5 @@
-(add-hook 'python-mode-hook 'jedi:setup)
+(add-hook 'python-mode-hook '(lambda ()
+                               (jedi:setup)
+                               (py-autopep8-enable-on-save)))
 (add-hook 'ein:notebook-mode-hook 'jedi:setup)
 (setq jedi:complete-on-dot t)

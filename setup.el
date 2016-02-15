@@ -38,6 +38,7 @@
 (package-install 'projectile)
 (package-install 'py-autopep8)
 (package-install 'twittering-mode)
+(package-install 'sql-indent)
 
 ;;; upgrade packages
 (package-list-packages)

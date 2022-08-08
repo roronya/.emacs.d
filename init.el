@@ -29,7 +29,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(mozc migemo affe projectile treemacs hydra neotree emdark marginalia orderless consult popup-el auto-complete auto-completion vertico impatient-mode auto-save-buffers-enhanced auto-save-buffers-enhannced markdown-preview-mode markdown-mode use-package)))
+   '(mozc-temp mozc-popup mozc migemo affe projectile treemacs hydra neotree emdark marginalia orderless consult popup-el auto-complete auto-completion vertico impatient-mode auto-save-buffers-enhanced auto-save-buffers-enhannced markdown-preview-mode markdown-mode use-package)))
 
 ;;; global
 ;; theme
@@ -71,13 +71,22 @@
 (defun my/off-input-method ()
   (interactive)
   (deactivate-input-method))
+;; karabinerでleft-commandをs-jに、right-commandをs-eに割り当てている
 (global-set-key (kbd "s-j") 'my/use-japanese-input-method)
 (global-set-key (kbd "s-e") 'my/off-input-method)
+(defun my/eisuu-key ()
+  "英数キーのエミュレート"
+  (interactive)
+  (call-process "osascript" nil t nil "-e" "tell application \"System Events\" to key code 102"))
+;;; Emacsにフォーカスが映ったときにOSのIMEをeisuuにする
+;; ref: https://tottoto.net/mac-emacs-karabiner-elements-japanese-input-method-config/
+(add-hook 'focus-in-hook #'my/eisuu-key)
 
 (use-package mozc
   :init
   (setq default-input-method "japanese-mozc")
   (setq mozc-helper-program-name "mozc_emacs_helper")
+  (setq mozc-candidate-style 'echo-area)
   )
 
 ;; 日本語をローマ字で検索する
@@ -87,7 +96,7 @@
   (setq migemo-command (executable-find "cmigemo"))
   (setq migemo-options '("-q" "--emacs" "--nonewline"))
   (setq migemo-dictionary (expand-file-name "migemo-dict" migemo-directory))
-  (setq migemo-coding-system 'utf-8-unix) ;この指定が極めて重要
+  (setq migemo-coding-system 'utf-8-unix)
   (setq migemo-user-dictionary nil)
   (setq migemo-regex-dictionary nil)
   (add-hook 'after-init-hook #'migemo-init))
@@ -214,3 +223,4 @@
 (markdown-preview-mode)
 (windmove-left)
 (treemacs)
+

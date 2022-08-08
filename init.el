@@ -18,6 +18,7 @@
     consult
     orderless
     marginalia
+    mozc
     ))
 (dolist (package my/dependencies)
   (unless (package-installed-p package)
@@ -28,7 +29,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(migemo affe projectile treemacs hydra neotree emdark marginalia orderless consult popup-el auto-complete auto-completion vertico impatient-mode auto-save-buffers-enhanced auto-save-buffers-enhannced markdown-preview-mode markdown-mode use-package)))
+   '(mozc migemo affe projectile treemacs hydra neotree emdark marginalia orderless consult popup-el auto-complete auto-completion vertico impatient-mode auto-save-buffers-enhanced auto-save-buffers-enhannced markdown-preview-mode markdown-mode use-package)))
 
 ;;; global
 ;; theme
@@ -62,6 +63,21 @@
   (add-hook 'markdown-mode-hook 'linum-mode)
   (add-hook 'emacs-lisp-mode-hook 'linum-mode)
   (setq linum-format " %4d ") ;; デフォルトだと見づらいので
+  )
+
+(defun my/use-japanese-input-method ()
+  (interactive)
+  (set-input-method 'japanese-mozc))
+(defun my/off-input-method ()
+  (interactive)
+  (deactivate-input-method))
+(global-set-key (kbd "s-j") 'my/use-japanese-input-method)
+(global-set-key (kbd "s-e") 'my/off-input-method)
+
+(use-package mozc
+  :init
+  (setq default-input-method "japanese-mozc")
+  (setq mozc-helper-program-name "mozc_emacs_helper")
   )
 
 ;; 日本語をローマ字で検索する
@@ -166,7 +182,6 @@
     (my/rename-file-and-buffer)
     (markdown-preview-mode)))
 (add-hook 'after-save-hook 'my/do-after-save)
-
 (use-package markdown-mode
   :config
   (setq markdown-indent-on-enter nil)
@@ -190,12 +205,12 @@
 (global-set-key (kbd "C-x C-k") 'windmove-up)
 (global-set-key (kbd "C-x C-l") 'windmove-right)
 (global-set-key (kbd "C-x C-n") 'my/open-file)
-
+(setq mac-option-modifier 'super)
 
 ;; main
 (my/open-file)
 (split-window-horizontally)
 (windmove-right)
-(markdown-preview-mode) ; FIXME: Error running timerが出ている
+(markdown-preview-mode)
 (windmove-left)
 (treemacs)

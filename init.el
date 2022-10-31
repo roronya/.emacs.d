@@ -207,15 +207,12 @@
   (when (eq major-mode 'markdown-mode)
     (my/rename-file-and-buffer)
     (my/move-note-to-articles)
-    ;; 以下のやり方のmarkdown-preview-modeのリロードは、長文になると動作が遅くなって不便だったのでやめた
-    ;; (markdown-preview-cleanup)
-    ;; (markdown-preview-mode)
     ))
 (add-hook 'after-save-hook 'my/do-after-save)
 (use-package markdown-mode
   :config
   (setq markdown-indent-on-enter nil)
-  (setq markdown-command "pandoc -s -c ~/.emacs.d/github-markdown.css --metadata pagetitle=preview")
+  (setq markdown-command (concat "pandoc -s -c " (getenv "HOME") "/.emacs.d/github-markdown.css --metadata pagetitle=preview"))
   (setq markdown-preview-stylesheets nil) ;; defaultのCSSは汚いので無効化
   ;; デフォルトのブラウザをemacs組み込みブラウザにする(markdownのプレビューに使う)
   (setq browse-url-browser-function 'xwidget-webkit-browse-url)

@@ -48,7 +48,8 @@
 (setq inhibit-startup-message t)
 ;; *scratch* bufferのメッセージをsetq
 (setq initial-scratch-message nil)
-
+;; カーソルをbarにする
+(add-to-list 'default-frame-alist '(cursor-type . bar))
 ;; font
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -64,24 +65,23 @@
   (add-hook 'emacs-lisp-mode-hook 'linum-mode)
   (setq linum-format " %4d ") ;; デフォルトだと見づらいので
   )
-
+;; 全角半角切り替え
 (defun my/use-japanese-input-method ()
   (interactive)
   (set-input-method 'japanese-mozc))
 (defun my/off-input-method ()
   (interactive)
   (deactivate-input-method))
-;; karabinerでleft-commandをs-jに、right-commandをs-eに割り当てている
+;;; karabinerでleft-commandをs-jに、right-commandをs-eに割り当てている
 (global-set-key (kbd "s-j") 'my/use-japanese-input-method)
 (global-set-key (kbd "s-e") 'my/off-input-method)
+;;; Emacsにフォーカスが映ったときにOSのIMEをeisuuにする
+;;; ref: https://tottoto.net/mac-emacs-karabiner-elements-japanese-input-method-config/
 (defun my/eisuu-key ()
   "英数キーのエミュレート"
   (interactive)
   (call-process "osascript" nil t nil "-e" "tell application \"System Events\" to key code 102"))
-;;; Emacsにフォーカスが映ったときにOSのIMEをeisuuにする
-;; ref: https://tottoto.net/mac-emacs-karabiner-elements-japanese-input-method-config/
 (add-hook 'focus-in-hook #'my/eisuu-key)
-
 (use-package mozc
   :init
   (setq default-input-method "japanese-mozc")
@@ -100,7 +100,6 @@
   (setq migemo-user-dictionary nil)
   (setq migemo-regex-dictionary nil)
   (add-hook 'after-init-hook #'migemo-init))
-
 
 ;; custome mini buffer
 (use-package vertico
@@ -142,7 +141,7 @@
      (s-ends-with? ".html" file)))
   :config
   (add-to-list 'treemacs-ignored-file-predicates #'treemacs-custome-filter)
-  (setq treemacs-width 100)
+  (setq treemacs-width 80)
   (setq treemacs-sorting 'alphabetic-desc)
   (treemacs-filewatch-mode t)
   (treemacs-follow-mode t)
@@ -158,9 +157,10 @@
   (add-hook 'emacs-lisp-mode-hook 'auto-complete-mode))
 
 ;; for editing markdown
-(setq my/project-root "~/src/github.com/roronya/mynote/articles/")
-(defun my/format-current-time-string () (format-time-string "%Y_%m%d_%H%M%S" (current-time)))
-(defun my/generate-junk-filename () (concat (my/format-current-time-string) ".md")) ;; => e.g. 2022_0808_100109.md
+(setq my/project-root "~/src/github.com/roronya/mynote/notes/")
+(setq my/articles-root "~/src/github.com/roronya/mynote/articles/")
+(defun my/format-current-time-string () (format-time-string "%Y_%m%d" (current-time)))
+(defun my/generate-junk-filename () (concat (my/format-current-time-string) ".md")) ;; => e.g. 2022_0808.md
 (defun my/open-file () (interactive) (find-file (concat my/project-root (my/generate-junk-filename))))
 ;; h1のヘッダがファイル内に1つで、1文字以上の長さを持つこと
 (defun my/extract-header ()  (substring (shell-command-to-string (concat "grep \"^# \" \"" (buffer-name) "\"")) 2 -1))
@@ -171,6 +171,23 @@
 (defun my/determine-filename ()
   (if (string= (my/extract-header) "")
       (my/generate-junk-filename) (my/generate-named-filename)))
+;; 保存時にzennの指定があったらarticlesにコピーする
+(defun my/zenn-articles? ()
+  (beginning-of-buffer)
+  (string= "---" (buffer-substring-no-properties 1 4)))
+;; slugを取得する
+(defun my/get-zenn-slug ()
+  (beginning-of-buffer)
+  ;; いい方法がわからなかったので、ファイル先頭からslugの場所までの文字数を数えている
+  (buffer-substring-no-properties 11 25))
+(defun my/move-note-to-articles ()
+  ;; my/zenn-articles?とmy/get-senn-slugでカーソル場所が動くので保存しておいて後で戻す
+  (point-to-register 'r)
+  (if (my/zenn-articles?)
+      (let ((oldname (buffer-file-name))
+	    (newname (concat my/articles-root (my/get-zenn-slug) ".md")))
+	(copy-file oldname newname t)))
+  (jump-to-register 'r))
 ;; 保存時にjunk filenameをmarkdownのh1で上書きする
 (defun my/rename-file-and-buffer ()
   (let ((name (buffer-name))
@@ -189,7 +206,11 @@
   (interactive)
   (when (eq major-mode 'markdown-mode)
     (my/rename-file-and-buffer)
-    (markdown-preview-mode)))
+    (my/move-note-to-articles)
+    ;; 以下のやり方のmarkdown-preview-modeのリロードは、長文になると動作が遅くなって不便だったのでやめた
+    ;; (markdown-preview-cleanup)
+    ;; (markdown-preview-mode)
+    ))
 (add-hook 'after-save-hook 'my/do-after-save)
 (use-package markdown-mode
   :config
@@ -199,7 +220,7 @@
   ;; デフォルトのブラウザをemacs組み込みブラウザにする(markdownのプレビューに使う)
   (setq browse-url-browser-function 'xwidget-webkit-browse-url)
   :bind
-  ("C-c C-c C-p" . markdown-preview-mode)
+  ("C-c C-c C-p" . markdown-preview)
   ("M-]" . markdown-demote)
   ("M-[" . markdown-promote)
   ("M-n" . nil)
@@ -220,7 +241,7 @@
 (my/open-file)
 (split-window-horizontally)
 (windmove-right)
-(markdown-preview-mode)
+(markdown-preview)
 (windmove-left)
 (treemacs)
 

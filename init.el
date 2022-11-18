@@ -50,6 +50,11 @@
 (setq initial-scratch-message nil)
 ;; カーソルをbarにする
 (add-to-list 'default-frame-alist '(cursor-type . bar))
+;; ビープ音を消す
+(setq ring-bell-function 'ignore)
+;; グローバルキーバインド
+(global-set-key (kbd "M-=") 'text-scale-increase)
+(global-set-key (kbd "M--") 'text-scale-decrease)
 ;; font
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
